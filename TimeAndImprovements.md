@@ -3,7 +3,7 @@
 ## Time Taken
 
 - Start Time: 13:54
-- End Time: ---
+- End Time: 15:40
 - Total Time: 1 hour and 30 minutes
 
 ## Tasks Completed
