@@ -41,6 +41,20 @@ The API has been built with Node.js, Express, SQLite, and Knex.js.  We would lik
 
 The API will be accessible at `http://localhost:3000`.
 
+## Running with Docker
+
+1. Build the docker image:
+
+   ```bash
+   docker build -t visione-cc .
+   ```
+
+2. Run a container with the image created:
+
+   ```bash
+   docker run --rm -p 127.0.0.1:3000:3000 visione-cc:latest
+   ```
+
 ## Database Migrations and Seeding
 
 - Database migrations and seeding are managed using Knex.js. To create new migrations and seed data, use the following commands:
