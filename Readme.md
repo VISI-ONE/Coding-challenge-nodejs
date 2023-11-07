@@ -55,6 +55,12 @@ The API will be accessible at `http://localhost:3000`.
    docker run --rm -p 127.0.0.1:3000:3000 visione-cc:latest
    ```
 
+## Running tests
+
+```bash
+make run-tests
+```
+
 ## Database Migrations and Seeding
 
 - Database migrations and seeding are managed using Knex.js. To create new migrations and seed data, use the following commands:
