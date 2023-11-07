@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 router.get('/tenant/:tenantId/priceboards', require('../controllers/priceboard'))
+router.get('/vehicle', require('../controllers/vehicle'))
   
 //  404
 router.use((req, res) => {
