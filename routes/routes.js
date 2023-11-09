@@ -25,4 +25,12 @@ router.get('/vehicles', async (req, res) => {
   }
 });
 
+router.post('/pair', async (req, res) => {
+  try {
+    //** Pairing to be done */
+  } catch(err) {
+    
+  }
+});
+
 module.exports = router;
