@@ -67,13 +67,14 @@ The API will be accessible at `http://localhost:3000`.
 
 ## Collaborating
 
-1. Create a new branch for your changes:
-
+1. Fork this repository to your own GitHub account.
+2. Clone your forked repository and make changes as needed.
+3. Create a new branch for your changes:
    ```bash
    git checkout -b your-name/your-branch-name
    ```
 
-2. Commit your changes and push to the GitHub repository:
+4. Commit your changes and push to your GitHub repository:
 
    ```bash
    git add .
@@ -81,9 +82,9 @@ The API will be accessible at `http://localhost:3000`.
    git push origin your-name/your-branch-name
    ```
 
-3. Create a Pull Request (PR) from your branch to master.
+5. Create a Pull Request (PR) from your repository to the original repository.
 
-4. The project owner will review your PR and provide feedback. Please be patient, we will try to send feedback within a week.
+6. The project owner will review your PR and provide feedback. Please be patient, we will try to send feedback within a week.
 
 ## Postman Collection
 
