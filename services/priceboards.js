@@ -1,5 +1,20 @@
 const db = require('../database/db');
 
+const getPriceboards = async () => {
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT * FROM priceboard';
+
+    db.all(query, [], (err, rows) => {
+      if (err) {
+        console.error('Error retrieving priceboards:', err);
+        reject(err);
+      } else {
+        resolve(rows);
+      }
+    });
+  })
+};
+
 const getPriceboardsByTenantId = async (tenantId) => {
   return new Promise((resolve, reject) => {
     const query = 'SELECT * FROM priceboard WHERE tenant_id = ?';
@@ -16,5 +31,6 @@ const getPriceboardsByTenantId = async (tenantId) => {
 };
 
 module.exports = {
-  getPriceboardsByTenantId
+  getPriceboardsByTenantId,
+  getPriceboards
 };
