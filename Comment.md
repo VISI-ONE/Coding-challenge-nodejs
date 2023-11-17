@@ -1,0 +1,3 @@
+I approximately spent 140 minutes on this test. Since it was demanding best practices and general improvements, that required some research and applied the current architecture we use.
+
+If I had more time, I will implement a frontend, do more unit tests, improve doccumentation, improve the data base, make CRUD etc...

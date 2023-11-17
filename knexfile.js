@@ -2,11 +2,14 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './priceboard.db', // Change this to your SQLite database file path
+      filename: './priceboard.db',
     },
     useNullAsDefault: true,
     migrations: {
-      directory: './migrations', // Create this directory in your project
+      directory: './src/database/migrations',
+    },
+    seeds: {
+      directory: './src/database/seeds',
     },
   },
 };
