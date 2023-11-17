@@ -5,4 +5,7 @@ init-db:
 
 # Start the Express app
 start:
-	node index.js
+	node server.js
+
+run-tests:
+	npx jest
