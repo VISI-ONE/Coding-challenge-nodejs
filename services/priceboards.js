@@ -1,6 +1,6 @@
 const db = require('../database/db');
 
-const getPriceboards = async () => {
+const getPriceboards = () => {
   return new Promise((resolve, reject) => {
     const query = 'SELECT * FROM priceboard';
 
@@ -15,7 +15,7 @@ const getPriceboards = async () => {
   })
 };
 
-const getPriceboardsByTenantId = async (tenantId) => {
+const getPriceboardsByTenantId = (tenantId) => {
   return new Promise((resolve, reject) => {
     const query = 'SELECT * FROM priceboard WHERE tenant_id = ?';
 

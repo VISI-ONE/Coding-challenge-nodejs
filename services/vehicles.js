@@ -1,6 +1,6 @@
 const db = require('../database/db');
 
-const getVehicles = async () => {
+const getVehicles = () => {
   return new Promise((resolve, reject) => {
     const query = 'SELECT * FROM vehicle';
 
