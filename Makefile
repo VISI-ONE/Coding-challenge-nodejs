@@ -5,4 +5,4 @@ init-db:
 
 # Start the Express app
 start:
-	node index.js
+	node src/index.js
