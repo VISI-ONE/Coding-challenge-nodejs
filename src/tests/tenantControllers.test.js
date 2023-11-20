@@ -1,4 +1,4 @@
-const request = require('supertest');
+const request = require('supertest')
 
 const server = require('../index')
 
@@ -12,17 +12,21 @@ describe('TENANT ROUTES AND CONTROLLERS', () => {
 
             const expected = [
                 {
-                    "id": 1,
-                    "name": "Tenant A"
+                    id: 1,
+                    name: 'Tenant A',
                 },
                 {
-                    "id": 2,
-                    "name": "Tenant B"
+                    id: 2,
+                    name: 'Tenant B',
+                },
+                {
+                    id: 3,
+                    name: 'Tenant C',
                 },
             ]
 
             expect(response.body).toEqual(expected)
-        });
+        })
     })
 
     describe('GET All Price dashboards', function () {
@@ -33,23 +37,22 @@ describe('TENANT ROUTES AND CONTROLLERS', () => {
                 .expect('Content-Type', /json/)
                 .expect(200)
 
-
             const expected = [
                 {
-                    "id": 1,
-                    "product_name": "Product 1",
-                    "price": 10.99,
-                    "tenant_id": 1
+                    id: 1,
+                    product_name: 'Product 1',
+                    price: 10.99,
+                    tenant_id: 1,
                 },
                 {
-                    "id": 2,
-                    "product_name": "Product 2",
-                    "price": 15.99,
-                    "tenant_id": 1
-                }
+                    id: 2,
+                    product_name: 'Product 2',
+                    price: 15.99,
+                    tenant_id: 1,
+                },
             ]
 
             expect(response.body).toEqual(expected)
         })
     })
-});
+})
