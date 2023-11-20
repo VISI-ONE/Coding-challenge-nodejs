@@ -1,6 +1,9 @@
-const { Router} = require('express')
+const { Router } = require('express')
 
-const { allPriceDashboards, allTenants } = require('../controllers/tenantControllers')
+const {
+    allPriceDashboards,
+    allTenants,
+} = require('../controllers/tenantControllers')
 
 const tenantRouter = Router()
 
