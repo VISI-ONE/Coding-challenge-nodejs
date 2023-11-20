@@ -5,6 +5,12 @@ exports.up = function (knex) {
       table.decimal('price', 10, 2).notNullable();
       table.integer('tenant_id').unsigned();
       table.foreign('tenant_id').references('tenant.id').onDelete('CASCADE');
+    })
+    .then(() => {
+      console.log('Migration completed successfully. Priceboard Table created.');
+    })
+    .catch((error) => {
+      console.error('Error during migration:', error);
     });
   };
   
