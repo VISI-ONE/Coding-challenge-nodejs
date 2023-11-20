@@ -5,7 +5,6 @@ const db = require('./shared/db')
 
 const { tenantRouter } = require('./routes/tenantRoutes')
 const { vehicleRoutes } = require('./routes/vehicleRoutes')
-// const { vehicleRouter } = require('./routes/vehicleRouter')
 
 const app = express()
 
