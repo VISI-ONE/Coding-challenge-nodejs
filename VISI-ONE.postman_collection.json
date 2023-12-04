@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "6f89066a-a019-49c2-b740-b299f9c3b059",
+		"name": "VISI/ONE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Priceboards",
+			"item": [
+				{
+					"name": "Pair Priceboard with Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/priceboards/add-vehicle/4/V2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"priceboards",
+								"add-vehicle",
+								"4",
+								"V2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Priceboards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/priceboards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"priceboards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Priceboards With TenantId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/priceboards/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"priceboards",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Get Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/priceboards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"priceboards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

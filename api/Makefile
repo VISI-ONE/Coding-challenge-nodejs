@@ -3,6 +3,6 @@ init-db:
 	npx knex migrate:latest
 	npx knex seed:run
 
-# Start the Express app
+# Start the Express app locally with nodemon
 start:
-	node index.js
+	npm run dev
