@@ -168,3 +168,5 @@ I would suggest the following improvements:
 - We should add types for all the tables.
 
 - We should manage environment variables properly with .evn files.
+
+- I forgot to add exception handler that should return 500 with error message, I will add it and add more tests for code coverage.
