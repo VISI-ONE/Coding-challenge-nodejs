@@ -1,8 +1,6 @@
-# Create and start the database
-init-db:
-	npx knex migrate:latest
-	npx knex seed:run
+# Create and start the test database
+init-db-test :
+	rm -f priceboard_test.db
+	NODE_ENV=test npx knex migrate:latest
+	NODE_ENV=test npx knex seed:run
 
-# Start the Express app
-start:
-	node index.js
