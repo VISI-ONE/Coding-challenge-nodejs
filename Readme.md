@@ -89,3 +89,82 @@ The API will be accessible at `http://localhost:3000`.
 ## Postman Collection
 
 Please create and include a Postman collection in the project that calls the endpoints. This will facilitate testing and documentation of the API.
+
+***
+
+# Solution
+
+Thank you so much for providing me the opportunity.
+I have tried my best to showcase my skills as much as possible.
+To be honest with other candidates, I spent 10–15 more minutes than the given time.
+
+I did not add any comments to the code, I believe that the code should be self-explanatory, and I tried to keep things simple to improve Readability.
+
+I made a few choices, including the folder structure, Joi validation and TypeScript integration. Please feel free to discuss any of the topics.
+
+## Improvements
+
+- Migrated the project to TypeScript.
+- Better usage of knex.js. I used the query builder to access the SQLite database.
+- Improvement in folder structure and architecture.
+- Added Joi validation for request payloads.
+- Fixed naming conventions.
+- Set up the test framework (Jest) and add tests with 100% coverage.
+- Added the Vehicle table migration and an API handler to retrieve vehicles.
+- Added Vehicle and Priceboard pairing table and API handler to create new pairs.
+- Added a Dockerfile to run a Node.js app inside a Docker container.
+- Added a Postman collection to the codebase.
+
+## Development
+
+Run the applicaion while Development:
+
+ ```bash
+  npm run dev
+   ```
+
+## Production
+
+Build the project:
+
+   ```bash
+    npm run build
+   ```
+
+Start using build directory:
+
+   ```bash
+    npm start
+   ```
+
+## Docker
+
+Build Docker image:
+
+   ```bash
+    npm run docker:build
+   ```
+
+Run Docker image:
+
+   ```bash
+    npm run docker:run
+   ```
+
+## Testing
+
+Run Tests:
+
+   ```bash
+    npm test
+   ```
+
+## Improvement Suggestions
+
+I would suggest the following improvements:
+
+- If we are planning to add any database servers in the future, we should consider using Docker Compose to manage multiple services with ease.
+
+- We should add types for all the tables.
+
+- We should manage environment variables properly with .evn files.
