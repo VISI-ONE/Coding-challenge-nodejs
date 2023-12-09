@@ -7,6 +7,8 @@ exports.seed = async function (knex) {
     return knex('tenant').insert([
       { name: 'Tenant A' },
       { name: 'Tenant B' },
+      { name: 'Tenant C' },
+      { name: 'Tenant D' },
     ]);
   }
 };
