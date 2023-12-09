@@ -8,7 +8,7 @@ exports.seed = async function (knex) {
       { product_name: 'Product 1', price: 10.99, tenant_id: 1 },
       { product_name: 'Product 2', price: 15.99, tenant_id: 1 },
       { product_name: 'Product 3', price: 8.49, tenant_id: 2 },
-      { product_name: 'Product 4', price: 12.99, tenant_id: 2 },
+      { product_name: 'Product 4', price: 12.99, tenant_id: 4 },
     ]);
   }
 };
