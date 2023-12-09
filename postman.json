@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "0e7f0fd1-8409-46c1-b281-18dc09918d42",
+		"name": "VISI-ONE Coding challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2799277",
+		"_collection_link": "https://dark-shadow-938172.postman.co/workspace/Team-Workspace~7c92ae50-ecaf-4ffd-8100-8953dfbea385/collection/2799277-0e7f0fd1-8409-46c1-b281-18dc09918d42?action=share&source=collection_link&creator=2799277"
+	},
+	"item": [
+		{
+			"name": "Vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/vehicles",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicles with query params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/vehicles?make=Toyota&model=Camry&year=2020&color=Silver&license_plate=ABC123",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "make",
+							"value": "Toyota"
+						},
+						{
+							"key": "model",
+							"value": "Camry"
+						},
+						{
+							"key": "year",
+							"value": "2020"
+						},
+						{
+							"key": "color",
+							"value": "Silver"
+						},
+						{
+							"key": "license_plate",
+							"value": "ABC123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tenant priceboards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tenants/1/priceboards",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tenants",
+						"1",
+						"priceboards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicles priceboard pair insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vehicle_id\": 3,\n    \"priceboard_id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/vehicles-priceboard-pairs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"vehicles-priceboard-pairs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
