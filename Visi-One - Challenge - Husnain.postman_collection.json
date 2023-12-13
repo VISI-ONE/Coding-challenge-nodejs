@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "1bbd93b7-0065-487b-8fce-1aa7ab1228e3",
+		"name": "Visi/One - Challenge - Husnain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1612057"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/priceboards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/priceboards",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"priceboards"
+					]
+				},
+				"description": "Get all priceboards"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/tenant/1/priceboards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tenant/1/priceboards",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tenant",
+						"1",
+						"priceboards"
+					]
+				},
+				"description": "Get priceboards for tenanent"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/vehicles",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"vehicles"
+					]
+				},
+				"description": "Get all vehisles"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/tenant/1/vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tenant/1/vehicles",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tenant",
+						"1",
+						"vehicles"
+					]
+				},
+				"description": "Get vehicles for a tenant"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/tenant/1/pairs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tenant/1/pairs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tenant",
+						"1",
+						"pairs"
+					]
+				},
+				"description": "Get pairs for a tenant"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/createpair",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "vehicle_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "price_board_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/createpair",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createpair"
+					]
+				},
+				"description": "Create pair"
+			},
+			"response": []
+		}
+	]
+}
