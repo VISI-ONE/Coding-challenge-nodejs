@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "start:dev": "nodemon ./index.js",
+    "d:build": "docker-compose build && docker-compose run --rm -e 'QUIET=1' code-challenge 'true'",
+    "d:login": "docker-compose run --rm --service-ports code-challenge /bin/bash",
+    "d:clean": "docker-compose stop && docker-compose rm -fv"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +20,8 @@
     "knex": "^3.0.1",
     "mysql": "^2.18.1",
     "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
