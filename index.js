@@ -29,6 +29,19 @@ app.get('/tenant/:tenantId/priceboards', async (req, res, next) => {
   }
 });
 
+// Get all vehicles for a specific tenant
+app.get('/tenant/:tenantId/vehicles', async (req, res, next) => {
+  try {
+    const tenantId = req.params.tenantId;
+    const query = 'SELECT * FROM vehicles WHERE tenant_id = ?';
+    const rows = await dbAll(query, [tenantId]);
+
+    res.status(200).json(rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Start the Express server
 const port = process.env.PORT || 3000;
 

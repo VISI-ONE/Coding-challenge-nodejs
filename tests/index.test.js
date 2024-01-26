@@ -41,30 +41,67 @@ describe('API Tests', () => {
         expect(response.body).toStrictEqual([]);
       });
     });
+
+    describe('Wen "tenantId" exists', () => {
+      it('GET /tenant/1/priceboards should return 200 OK', async () => {
+        const response = await apiRequest.get('/tenant/1/priceboards');
+        expect(response.status).toBe(200);
+      });
+
+      it('GET /tenant/1/priceboards should return all connected boards', async () => {
+        const response = await apiRequest.get('/tenant/1/priceboards');
+        expect(response.body).toStrictEqual([
+          {
+            id: 1,
+            price: 10.99,
+            product_name: 'Product 1',
+            tenant_id: 1,
+          },
+          {
+            id: 2,
+            price: 15.99,
+            product_name: 'Product 2',
+            tenant_id: 1,
+          },
+        ]);
+      });
+    });
   });
 
-  describe('Wen "tenantId" exists', () => {
-    it('GET /tenant/1/priceboards should return 200 OK', async () => {
-      const response = await apiRequest.get('/tenant/1/priceboards');
-      expect(response.status).toBe(200);
+  describe('GET /tenant/id/vehicles', () => {
+    describe('Wen "tenantId" does not exists', () => {
+      it('should return 200 OK', async () => {
+        const response = await apiRequest.get('/tenant/0/vehicles');
+        expect(response.status).toBe(200);
+      });
+
+      it('should return empty result', async () => {
+        const response = await apiRequest.get('/tenant/0/vehicles');
+        expect(response.body).toStrictEqual([]);
+      });
     });
 
-    it('GET /tenant/1/priceboards should return 2 boards', async () => {
-      const response = await apiRequest.get('/tenant/1/priceboards');
-      expect(response.body).toStrictEqual([
-        {
-          id: 1,
-          price: 10.99,
-          product_name: 'Product 1',
-          tenant_id: 1,
-        },
-        {
-          id: 2,
-          price: 15.99,
-          product_name: 'Product 2',
-          tenant_id: 1,
-        },
-      ]);
+    describe('Wen "tenantId" exists should return all connected vehicles', () => {
+      it('should return 200 OK', async () => {
+        const response = await apiRequest.get('/tenant/1/vehicles');
+        expect(response.status).toBe(200);
+      });
+
+      it('should return empty result', async () => {
+        const response = await apiRequest.get('/tenant/1/vehicles');
+        expect(response.body).toStrictEqual([
+          {
+            id: 1,
+            name: 'VW',
+            tenant_id: 1,
+          },
+          {
+            id: 2,
+            name: 'Opel',
+            tenant_id: 1,
+          },
+        ]);
+      });
     });
   });
 });
