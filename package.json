@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:seed && NODE_ENV=test jest --detectOpenHandles",
+    "test": "rm priceboard.test.db && npm run test:seed && NODE_ENV=test jest --detectOpenHandles",
     "test:seed": "NODE_ENV=test npx knex migrate:latest && NODE_ENV=test npx knex seed:run",
     "start": "node index.js",
     "start:dev": "nodemon ./index.js",

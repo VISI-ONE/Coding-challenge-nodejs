@@ -26,11 +26,38 @@ afterAll((done) => {
 
 describe('API Tests', () => {
   beforeAll(() => {
-    // ideally here should bev persisted all entities required for test
+    // ideally here should be persisted all entities required for test
+  });
+
+  describe('GET /priceboards/:id', () => {
+    describe('When "id" does not exists', () => {
+      it('should return 404 Not Found', async () => {
+        const response = await apiRequest.get('/priceboards/0');
+        expect(response.status).toBe(404);
+      });
+    });
+
+    describe('When "id" exists', () => {
+      it('should return 200 Ok', async () => {
+        const response = await apiRequest.get('/priceboards/1');
+        expect(response.status).toBe(200);
+      });
+
+      it('should return 200 Ok', async () => {
+        const response = await apiRequest.get('/priceboards/1');
+        expect(response.body).toStrictEqual({
+          id: 1,
+          price: 10.99,
+          product_name: 'Product 1',
+          tenant_id: 1,
+          vehicle_id: null,
+        });
+      });
+    });
   });
 
   describe('GET /tenant/id/priceboards', () => {
-    describe('Wen "tenantId" does not exists', () => {
+    describe('When "tenantId" does not exists', () => {
       it('should return 200 OK', async () => {
         const response = await apiRequest.get('/tenant/0/priceboards');
         expect(response.status).toBe(200);
@@ -42,7 +69,7 @@ describe('API Tests', () => {
       });
     });
 
-    describe('Wen "tenantId" exists', () => {
+    describe('When "tenantId" exists', () => {
       it('GET /tenant/1/priceboards should return 200 OK', async () => {
         const response = await apiRequest.get('/tenant/1/priceboards');
         expect(response.status).toBe(200);
@@ -56,12 +83,14 @@ describe('API Tests', () => {
             price: 10.99,
             product_name: 'Product 1',
             tenant_id: 1,
+            vehicle_id: null,
           },
           {
             id: 2,
             price: 15.99,
             product_name: 'Product 2',
             tenant_id: 1,
+            vehicle_id: null,
           },
         ]);
       });
@@ -69,7 +98,7 @@ describe('API Tests', () => {
   });
 
   describe('GET /tenant/id/vehicles', () => {
-    describe('Wen "tenantId" does not exists', () => {
+    describe('When "tenantId" does not exists', () => {
       it('should return 200 OK', async () => {
         const response = await apiRequest.get('/tenant/0/vehicles');
         expect(response.status).toBe(200);
@@ -81,7 +110,7 @@ describe('API Tests', () => {
       });
     });
 
-    describe('Wen "tenantId" exists should return all connected vehicles', () => {
+    describe('When "tenantId" exists should return all connected vehicles', () => {
       it('should return 200 OK', async () => {
         const response = await apiRequest.get('/tenant/1/vehicles');
         expect(response.status).toBe(200);
@@ -101,6 +130,66 @@ describe('API Tests', () => {
             tenant_id: 1,
           },
         ]);
+      });
+    });
+  });
+
+  describe('POST /tenant/:tenantId/vehicle-priceboard', () => {
+    describe('When "tenantId" does not exists', () => {
+      it('should return 404 NotFound', async () => {
+        const response = await apiRequest
+          .post('/tenant/0/vehicle-priceboard')
+          .send({ priceboardId: 0, vehicleId: 0 });
+        expect(response.status).toBe(404);
+      });
+    });
+
+    describe('When payload is invalid', () => {
+      it('should return 400 Bad Request', async () => {
+        const response = await apiRequest
+          .post('/tenant/1/vehicle-priceboard')
+          .send({});
+        expect(response.status).toBe(400);
+      });
+    });
+
+    describe('When the board does not belong to the tenant', () => {
+      it('should return 412 Precondition Failed', async () => {
+        const response = await apiRequest
+          .post('/tenant/1/vehicle-priceboard')
+          .send({ priceboardId: 5, vehicleId: 1 });
+        expect(response.status).toBe(412);
+      });
+    });
+
+    describe('When the vehicle does not belong to the tenant', () => {
+      it('should return 412 Precondition Failed', async () => {
+        const response = await apiRequest
+          .post('/tenant/1/vehicle-priceboard')
+          .send({ priceboardId: 1, vehicleId: 5 });
+        expect(response.status).toBe(412);
+      });
+    });
+
+    describe('When the vehicle and the price board belong to the tenant', () => {
+      it('should pair vehicle and price board', async () => {
+        const response = await apiRequest
+          .post('/tenant/1/vehicle-priceboard')
+          .send({ priceboardId: 1, vehicleId: 1 });
+        expect(response.status).toBe(204);
+      });
+
+      describe('When fetching the priceboard again', () => {
+        it('should return updated price board', async () => {
+          const response = await apiRequest.get('/priceboards/1');
+          expect(response.body).toStrictEqual({
+            id: 1,
+            price: 10.99,
+            product_name: 'Product 1',
+            tenant_id: 1,
+            vehicle_id: 1,
+          });
+        });
       });
     });
   });
