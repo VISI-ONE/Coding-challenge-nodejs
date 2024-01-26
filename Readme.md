@@ -1,8 +1,39 @@
+# Setup and run app
+
+1. buid container
+   `npm run d:build`
+
+2. login into container
+   `npm run d:login`
+
+3. install dependencies
+   `npm install`
+
+4. seed db
+   `npm run db:seed`
+
+5. run dev
+   `npm run start:dev`
+
+# Setup and run tests
+
+1. buid container
+   `npm run d:build`
+
+2. login into container
+   `npm run d:login`
+
+3. install dependencies
+   `npm install`
+
+4. run tests
+   `npm run test`
+
 # VISI-ONE Coding challenge
 
-Welcome! Thank you for taking the time to apply.  We value your time, so please limit yourself to 90 minutes for the solution.  Please add a file with your actual time taken and any improvements that you would make to your solution, if you were given additional time.  This keeps it fair for everyone.
+Welcome! Thank you for taking the time to apply. We value your time, so please limit yourself to 90 minutes for the solution. Please add a file with your actual time taken and any improvements that you would make to your solution, if you were given additional time. This keeps it fair for everyone.
 
-The API has been built with Node.js, Express, SQLite, and Knex.js.  We would like you to improve a few things.
+The API has been built with Node.js, Express, SQLite, and Knex.js. We would like you to improve a few things.
 
 ## Things to Improve
 
@@ -45,31 +76,35 @@ The API will be accessible at `http://localhost:3000`.
 
 - Database migrations and seeding are managed using Knex.js. To create new migrations and seed data, use the following commands:
 
-   - Create a new migration:
-     ```bash
-     npx knex migrate:make migration_name
-     ```
+  - Create a new migration:
 
-   - Run migrations:
-     ```bash
-     npx knex migrate:latest
-     ```
+    ```bash
+    npx knex migrate:make migration_name
+    ```
 
-   - Create a new seed file:
-     ```bash
-     npx knex seed:make seed_name
-     ```
+  - Run migrations:
 
-   - Run seed data:
-     ```bash
-     npx knex seed:run
-     ```
+    ```bash
+    npx knex migrate:latest
+    ```
+
+  - Create a new seed file:
+
+    ```bash
+    npx knex seed:make seed_name
+    ```
+
+  - Run seed data:
+    ```bash
+    npx knex seed:run
+    ```
 
 ## Collaborating
 
 1. Fork this repository to your own GitHub account.
 2. Clone your forked repository and make changes as needed.
 3. Create a new branch for your changes:
+
    ```bash
    git checkout -b your-name/your-branch-name
    ```
@@ -89,3 +124,7 @@ The API will be accessible at `http://localhost:3000`.
 ## Postman Collection
 
 Please create and include a Postman collection in the project that calls the endpoints. This will facilitate testing and documentation of the API.
+
+```
+
+```

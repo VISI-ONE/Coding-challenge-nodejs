@@ -8,6 +8,7 @@
     "test:seed": "NODE_ENV=test npx knex migrate:latest && NODE_ENV=test npx knex seed:run",
     "start": "node index.js",
     "start:dev": "nodemon ./index.js",
+    "db:seed": "npx knex migrate:latest && npx knex seed:run",
     "d:build": "docker-compose build && docker-compose run --rm -e 'QUIET=1' code-challenge 'true'",
     "d:login": "docker-compose run --rm --service-ports code-challenge /bin/bash",
     "d:clean": "docker-compose stop && docker-compose rm -fv"
