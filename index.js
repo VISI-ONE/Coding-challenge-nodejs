@@ -25,6 +25,11 @@ app.get('/tenant/:tenantId/priceboards', (req, res) => {
 
 // Start the Express server
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+}
+
+module.exports = app;
