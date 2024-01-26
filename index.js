@@ -10,19 +10,23 @@ const dbName =
 const db = new sqlite3.Database(dbName);
 // Express API routes for CRUD operations
 
-// Get all priceboards for a specific tenant
-app.get('/tenant/:tenantId/priceboards', (req, res) => {
-  const tenantId = req.params.tenantId;
-  const query = 'SELECT * FROM priceboard WHERE tenant_id = ?';
+// Error handling
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
 
-  db.all(query, [tenantId], (err, rows) => {
-    if (err) {
-      console.error('Error retrieving priceboards:', err);
-      res.status(500).json({ error: 'Error retrieving priceboards' });
-    } else {
-      res.status(200).json(rows);
-    }
-  });
+// Get all priceboards for a specific tenant
+app.get('/tenant/:tenantId/priceboards', async (req, res, next) => {
+  try {
+    const tenantId = req.params.tenantId;
+    const query = 'SELECT * FROM priceboard WHERE tenant_id = ?';
+    const rows = await dbAll(query, [tenantId]);
+
+    res.status(200).json(rows);
+  } catch (err) {
+    next(err);
+  }
 });
 
 // Start the Express server
@@ -35,3 +39,15 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 module.exports = app;
+
+function dbAll(query, params) {
+  return new Promise((resolve, reject) => {
+    db.all(query, params, (err, rows) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(rows);
+      }
+    });
+  });
+}

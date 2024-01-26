@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:seed && NODE_ENV=test jest --detectOpenHandles",
-    "test:seed": "NODE_ENV=test npx knex migrate:latest && npx knex seed:run",
+    "test:seed": "NODE_ENV=test npx knex migrate:latest && NODE_ENV=test npx knex seed:run",
     "start": "node index.js",
     "start:dev": "nodemon ./index.js",
     "d:build": "docker-compose build && docker-compose run --rm -e 'QUIET=1' code-challenge 'true'",
