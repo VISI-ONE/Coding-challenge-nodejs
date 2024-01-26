@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-const db = new sqlite3.Database('priceboard.db');
+const dbName =
+  process.env.NODE_ENV === 'test' ? 'priceboard.test.db' : 'priceboard.db';
+const db = new sqlite3.Database(dbName);
 // Express API routes for CRUD operations
 
 // Get all priceboards for a specific tenant

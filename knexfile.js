@@ -9,4 +9,14 @@ module.exports = {
       directory: './migrations', // Create this directory in your project
     },
   },
+  test: {
+    client: 'sqlite3',
+    connection: {
+      filename: './priceboard.test.db',
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './migrations',
+    },
+  },
 };

@@ -1,2 +1,3 @@
 node_modules/
 priceboard.db
+priceboard.test.db
