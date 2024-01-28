@@ -126,5 +126,84 @@ The API will be accessible at `http://localhost:3000`.
 Please create and include a Postman collection in the project that calls the endpoints. This will facilitate testing and documentation of the API.
 
 ```
+{
+	"info": {
+		"_postman_id": "49d07524-dd4e-4609-b3d8-49cd16c5a2f4",
+		"name": "Tenant Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3319783",
+		"_collection_link": "https://www.postman.com/anton-syrovatka/workspace/anton-syrovatka/collection/3319783-49d07524-dd4e-4609-b3d8-49cd16c5a2f4?action=share&source=collection_link&creator=3319783"
+	},
+	"item": [
+		{
+			"name": "Get Tenant Priceboards",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tenant Vehicles",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get PriceBoard by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Pair Vehicle and Priceboard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"priceboardId\": 1, \n    \"vehicleId\": 5 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/tenant/1/vehicle-priceboar"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
 
 ```
