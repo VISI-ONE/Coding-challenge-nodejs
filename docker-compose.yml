@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  code-challenge:
+    build: .
+    volumes:
+      - .:/opt/code-challenge:cached
+      - /Users:/Users
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
