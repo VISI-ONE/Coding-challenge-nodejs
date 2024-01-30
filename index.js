@@ -38,8 +38,13 @@ app.get('/tenant/:tenantId/priceboards', async (req, res, next) => {
 
 });
 
-// Start the Express server
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// Export the app for testing
+module.exports = app;
+
+// Start the server only if this file is the main module
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+};
