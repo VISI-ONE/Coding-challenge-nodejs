@@ -18,6 +18,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
+const getPriceboardsByTenantId = async (tenantId) => {
+  return db('priceboard').where('tenant_id', tenantId);
+};
+
 // Express API routes for CRUD operations
 
 // Get all priceboards for a specific tenant
