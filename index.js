@@ -1,26 +1,41 @@
 const express = require('express');
 const sqlite3 = require('sqlite3');
 const bodyParser = require('body-parser');
+const knex = require('knex');
 
 const app = express();
 app.use(bodyParser.json());
 
-const db = new sqlite3.Database('priceboard.db');
+const db = knex({
+  client: 'sqlite3',
+  connection: {
+    filename: 'priceboard.db',
+  },
+  useNullAsDefault: true,
+});
+
+// Middleware for error handling
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+
+const getPriceboardsByTenantId = async (tenantId) => {
+  return db('priceboard').where('tenant_id', tenantId);
+};
+
 // Express API routes for CRUD operations
 
 // Get all priceboards for a specific tenant
-app.get('/tenant/:tenantId/priceboards', (req, res) => {
-  const tenantId = req.params.tenantId;
-  const query = 'SELECT * FROM priceboard WHERE tenant_id = ?';
+app.get('/tenant/:tenantId/priceboards', async (req, res, next) => {
+  try {
+    const tenantId = req.params.tenantId;
+    const priceboards = await getPriceboardsByTenantId(tenantId);
+    res.status(200).json(priceboards);
+  } catch (error) {
+    next(error);
+  };
 
-  db.all(query, [tenantId], (err, rows) => {
-    if (err) {
-      console.error('Error retrieving priceboards:', err);
-      res.status(500).json({ error: 'Error retrieving priceboards' });
-    } else {
-      res.status(200).json(rows);
-    }
-  });
 });
 
 // Start the Express server
