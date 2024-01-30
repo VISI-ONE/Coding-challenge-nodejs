@@ -6,6 +6,13 @@ const app = express();
 app.use(bodyParser.json());
 
 const db = new sqlite3.Database('priceboard.db');
+
+// Middleware for error handling
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+
 // Express API routes for CRUD operations
 
 // Get all priceboards for a specific tenant
