@@ -11,6 +11,7 @@ const db = knex({
   connection: {
     filename: 'priceboard.db',
   },
+  useNullAsDefault: true,
 });
 
 // Middleware for error handling
