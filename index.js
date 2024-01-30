@@ -5,7 +5,12 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-const db = new sqlite3.Database('priceboard.db');
+const db = knex({
+  client: 'sqlite3',
+  connection: {
+    filename: 'priceboard.db',
+  },
+});
 
 // Middleware for error handling
 app.use((err, req, res, next) => {
