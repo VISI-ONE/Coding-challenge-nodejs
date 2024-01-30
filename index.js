@@ -26,13 +26,13 @@ const getPriceboardsByTenantId = async (tenantId) => {
 // Express API routes for CRUD operations
 
 // Get all priceboards for a specific tenant
-app.get('/tenant/:tenantId/priceboards', async (req, res) => {
+app.get('/tenant/:tenantId/priceboards', async (req, res, next) => {
   try {
     const tenantId = req.params.tenantId;
     const priceboards = await getPriceboardsByTenantId(tenantId);
     res.status(200).json(priceboards);
   } catch (error) {
-    
+    next(error);
   };
 
 });
