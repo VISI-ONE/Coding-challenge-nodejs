@@ -1,12 +1,34 @@
+const commonConfig = {
+  client: 'sqlite3',
+  useNullAsDefault: true,
+  migrations: {
+    directory: './migrations',
+  },
+};
+
 module.exports = {
-  development: {
-    client: 'sqlite3',
+  test: {
     connection: {
-      filename: './priceboard.db', // Change this to your SQLite database file path
+      filename: './priceboard-test.db',
     },
-    useNullAsDefault: true,
-    migrations: {
-      directory: './migrations', // Create this directory in your project
+    ...commonConfig,
+  },
+  development: {
+    connection: {
+      filename: './priceboard-dev.db',
     },
+    seeds: {
+      directory: './seeds',
+    },
+    ...commonConfig,
+  },
+  production: {
+    connection: {
+      filename: './priceboard-prod.db',
+    },
+    seeds: {
+      directory: './seeds',
+    },
+    ...commonConfig,
   },
 };
