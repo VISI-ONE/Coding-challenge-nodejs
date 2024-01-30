@@ -1,7 +1,7 @@
 exports.seed = async function (knex) {
   // Check if data already exists in the priceboard table
   const existingPriceboards = await knex('priceboard').select();
-  
+
   // If there's no existing data, insert the sample data
   if (existingPriceboards.length === 0) {
     return knex('priceboard').insert([
