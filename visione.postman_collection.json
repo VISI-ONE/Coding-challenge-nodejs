@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "21a9cd1b-1442-412a-b333-76b5c836c109",
+		"name": "visione",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32733357"
+	},
+	"item": [
+		{
+			"name": "Tenant with priceboard and vehicles",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Tenant Priceboards",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
