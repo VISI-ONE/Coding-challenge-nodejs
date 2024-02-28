@@ -4,7 +4,7 @@ exports.seed = async function (knex) {
 
   // If there's no existing data, insert the sample data
   if (existingVehicles.length === 0) {
-    return knex("priceboard").insert([
+    return knex("vehicle").insert([
       { name: "Car 1", priceboard_id: 1, tenant_id: 1 },
       { name: "Car 2", priceboard_id: 2, tenant_id: 1 },
       { name: "Car 3", priceboard_id: 3, tenant_id: 2 },
