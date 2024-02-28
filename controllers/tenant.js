@@ -31,12 +31,15 @@ const getVehicles = (req, res) => {
 const pairVehicleToPriceboard = (req, res) => {
   const tenantId = req.params.tenantId;
   const { vehicleId, priceboardId } = req.body;
+  if (!vehicleId || !priceboardId) {
+    res.status(500).json({ error: "Please provide vehicleId and priceboardId" });
+  }
   const query = "UPDATE priceboard SET vehicle_id = ? WHERE id = ? AND tenant_id = ?";
 
   db.all(query, [vehicleId, priceboardId, tenantId], (err) => {
     if (err) {
-      console.error("Error pairing vehicle with priceboard:", err);
-      res.status(500).json({ error: "Error pairing vehicle with priceboard" });
+      console.error("Error pairing vehicle to priceboard:", err);
+      res.status(500).json({ error: "Error pairing vehicle to priceboard" });
     } else {
       res.status(200).json({ ok: true });
     }
