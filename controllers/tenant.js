@@ -1,6 +1,7 @@
 const db = require("../db");
 
 const getPriceBoards = (req, res) => {
+  console.log("TEST")
   const tenantId = req.params.tenantId;
   const query = "SELECT * FROM priceboard WHERE tenant_id = ?";
 
