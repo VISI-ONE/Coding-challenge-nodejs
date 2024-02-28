@@ -59,6 +59,10 @@ describe("Tenant Controllers", () => {
       return res
     });
 
-    tenantController.getPriceBoards(mockRequestObj, res);
+    tenantController.getVehicles(mockRequestObj, res);
   });
+
+  it("Should pair a vehicle to a priceboard", () => {
+
+  })
 });
