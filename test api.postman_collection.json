@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "7f07a6b1-3884-4804-a5e7-904dd0b270ee",
+		"name": "test api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get priceboards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tenant/1/priceboards",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tenant",
+						"1",
+						"priceboards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tenant/1/vehicles",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tenant",
+						"1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pair vehicle with priceboard",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vehicleId\": 1,\n    \"priceboardId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/tenant/1/pair",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tenant",
+						"1",
+						"pair"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
