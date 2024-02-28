@@ -31,6 +31,8 @@ const getVehicles = (req, res) => {
 const pairVehicleToPriceboard = (req, res) => {
   const tenantId = req.params.tenantId;
   const { vehicleId, priceboardId } = req.body;
+
+  // Check if body properties are defined
   if (!vehicleId || !priceboardId) {
     res.status(500).json({ error: "Please provide vehicleId and priceboardId" });
   }
