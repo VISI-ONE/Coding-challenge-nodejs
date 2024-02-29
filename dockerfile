@@ -1,4 +1,6 @@
-FROM ubuntu:22.04
+FROM node:latest
+WORKDIR /home/node/app 
 COPY . .
-RUN make init-db
-CMD make start
+RUN npm install
+RUN npx knex migrate:latest && npx knex seed:run
+CMD npm start
