@@ -6,3 +6,8 @@ init-db:
 # Start the Express app
 start:
 	node index.js
+
+test: 
+	rm priceboard.db
+	make init-db
+	npm test

@@ -1,0 +1,6 @@
+.git*
+
+*.md
+priceboard.db
+
+node_modules

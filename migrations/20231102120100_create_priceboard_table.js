@@ -5,9 +5,11 @@ exports.up = function (knex) {
       table.decimal('price', 10, 2).notNullable();
       table.integer('tenant_id').unsigned();
       table.foreign('tenant_id').references('tenant.id').onDelete('CASCADE');
+      table.decimal('vehicle_id').unsigned();
+      table.foreign('vehicle_id').references('vehicle.id').onDelete('CASCADE');
     });
   };
-  
+
   exports.down = function (knex) {
     return knex.schema.dropTable('priceboard');
   };
