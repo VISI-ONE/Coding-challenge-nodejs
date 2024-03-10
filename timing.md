@@ -11,3 +11,8 @@ Following is the breakdown of the time spent on the improvements.
   - Refactoring: use controllers and services to separate business logic and routes.
   - Write test for endpoints. Use arrestion on the response of the api to check for correctness. e.g expect(res).to.have.status(200)
   - Providin the Docker file to run the application in a Docker container.
+
+  ## Further improvements
+
+  - added testing for api routes. (20mins)
+  - added dockerfile (15mins)
