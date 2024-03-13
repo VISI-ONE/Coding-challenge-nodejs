@@ -23,8 +23,41 @@ app.get('/tenant/:tenantId/priceboards', (req, res) => {
   });
 });
 
+app.get('/vehicles', (req, res) => {
+  const query = 'SELECT * FROM vehicle';
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      console.error('Error retrieving vehicles:', err);
+      res.status(500).json({ error: 'Error retrieving vehicles' });
+    } else {
+      res.status(200).json(rows);
+    }
+  })
+})
+
+app.get('/vehicle/:vehicleId/priceboards', (req, res) => {
+  const vehicleId = req.params.vehicleId
+
+  const query = `SELECT *
+    from priceboard
+    LEFT JOIN vehicle
+    ON priceboard.tenant_id= vehicle.tenant_id
+    WHERE vehicle.id = ?`
+
+  db.all(query, [vehicleId], (err, rows) => {
+    if (err) {
+      console.error('Error retrieving vehicles:', err);
+      res.status(500).json({ error: 'Error retrieving vehicles' });
+    } else {
+      res.status(200).json(rows);
+    }
+  })
+})
+
 // Start the Express server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app
