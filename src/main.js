@@ -2,7 +2,7 @@ import express from "express";
 
 import bodyParser from "body-parser";
 
-import { tenantRouter } from "./routes/index.js";
+import { tenantRouter, vehicleRouter } from "./routes/index.js";
 
 import { db } from "./repository/index.js";
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 db.init();
 
 // Express API routes for CRUD operations
-app.use("/api/v1/", tenantRouter);
+app.use("/api/v1/", [tenantRouter, vehicleRouter]);
 
 // catch all errors
 app.use((error, req, res, next) => {

@@ -1,3 +1,3 @@
 import * as TenantService from "./tenantService.js";
-
-export { TenantService };
+import * as VehicleService from "./vehicleService.js";
+export { TenantService, VehicleService };
