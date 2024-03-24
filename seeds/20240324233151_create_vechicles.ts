@@ -2,11 +2,11 @@ import { Knex } from "knex";
 
 export async function seed(knex: Knex) {
     // Check if data already exists in the priceboard table
-    const existingVehicles = await knex('vehicles').select();
+    const existingVehicles = await knex('vehicle').select();
 
     // If there's no existing data, insert the sample data
     if (existingVehicles.length === 0) {
-        await knex('priceboard').insert(
+        await knex('vehicle').insert(
             [
                 { id: 1, name: "Mercedes", tenant_id: 1 },
                 { id: 2, name: "Porsche", tenant_id: 1 },

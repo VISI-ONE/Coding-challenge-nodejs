@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { getPriceboardsByTenant } from '../services/tenantService';
+import { getPriceboardsByTenant } from '../services/priceboardService';
+import { getPairs } from '../services/pairingService';
 
 export const getTenantPriceboards = async (req: Request, res: Response) => {
     try {
