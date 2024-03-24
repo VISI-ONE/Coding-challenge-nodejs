@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  app:
+    container_name: visi-app
+    build: .
+    image: visi_one_app:dev
+    restart: always
+    volumes:
+      - .:/usr/app/server
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+
+    environment:
+      PORT: ${PORT}
