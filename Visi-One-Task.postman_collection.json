@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "89bd46eb-8f54-439d-82ff-178696d62be5",
+		"name": "Visi-One-Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24480125"
+	},
+	"item": [
+		{
+			"name": "pair",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/vehiclepricepair?priceboard_id=1&vehicle_id=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"vehiclepricepair"
+					],
+					"query": [
+						{
+							"key": "priceboard_id",
+							"value": "1"
+						},
+						{
+							"key": "vehicle_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tenant/getAllPriceBoards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/tenant/:tenantId/priceboards",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tenant",
+						":tenantId",
+						"priceboards"
+					],
+					"variable": [
+						{
+							"key": "tenantId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vehicles (getAll/getByVehicleId/getByTenantId)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/vehicles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "vehicle_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "tenant_id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "tenantId",
+			"value": ":tenantId"
+		}
+	]
+}
