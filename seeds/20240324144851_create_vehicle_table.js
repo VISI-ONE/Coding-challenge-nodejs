@@ -2,7 +2,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.seed = async function (knex) {
+export async function seed(knex) {
   // Deletes ALL existing entries
   await knex("vehicles").del();
   await knex("vehicles").insert([
@@ -11,4 +11,4 @@ exports.seed = async function (knex) {
     { id: 3, vehicle_name: "Bmw", tenant_id: 2 },
     { id: 4, vehicle_name: "Mercedes", tenant_id: 2 },
   ]);
-};
+}
