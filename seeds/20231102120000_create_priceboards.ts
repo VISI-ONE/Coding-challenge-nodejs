@@ -1,7 +1,9 @@
-exports.seed = async function (knex) {
+import { Knex } from "knex";
+
+exports.seed = async function (knex: Knex) {
   // Check if data already exists in the priceboard table
   const existingPriceboards = await knex('priceboard').select();
-  
+
   // If there's no existing data, insert the sample data
   if (existingPriceboards.length === 0) {
     return knex('priceboard').insert([
@@ -10,5 +12,7 @@ exports.seed = async function (knex) {
       { product_name: 'Product 3', price: 8.49, tenant_id: 2 },
       { product_name: 'Product 4', price: 12.99, tenant_id: 2 },
     ]);
+  } else {
+    console.log("skipping seeding priceboards - data already exists");
   }
 };

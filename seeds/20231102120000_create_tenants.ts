@@ -1,4 +1,6 @@
-exports.seed = async function (knex) {
+import { Knex } from "knex";
+
+exports.seed = async function (knex: Knex) {
   // Check if data already exists in the tenant table
   const existingTenants = await knex('tenant').select();
 
@@ -8,5 +10,7 @@ exports.seed = async function (knex) {
       { name: 'Tenant A' },
       { name: 'Tenant B' },
     ]);
+  } else {
+    console.log("skipping seeding tenants - data already exists");
   }
 };
