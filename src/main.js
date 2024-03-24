@@ -1,27 +1,30 @@
 import express from "express";
-import sqlite3 from "sqlite3";
+
 import bodyParser from "body-parser";
+
+import { tenantRouter } from "./routes/index.js";
+
+import { db } from "./repository/index.js";
 
 const app = express();
 app.use(bodyParser.json());
 
-const db = new sqlite3.Database("priceboard.db");
+// Initialize the database connection
+db.init();
+
 // Express API routes for CRUD operations
+app.use("/api/v1/", tenantRouter);
 
-// Get all priceboards for a specific tenant
-app.get("/tenant/:tenantId/priceboards", (req, res) => {
-  const tenantId = req.params.tenantId;
-  const query = "SELECT * FROM priceboard WHERE tenant_id = ?";
-
-  db.all(query, [tenantId], (err, rows) => {
-    if (err) {
-      console.error("Error retrieving priceboards:", err);
-      res.status(500).json({ error: "Error retrieving priceboards" });
-    } else {
-      res.status(200).json(rows);
-    }
-  });
+// catch all errors
+app.use((error, req, res, next) => {
+  //   console.error("here", error.statusCode, error.message, error.stack);
+  res
+    .status(error.statusCode || 500)
+    .json({ message: error.message ?? "Internal Server Error" });
+  next();
 });
+
+export default app;
 
 // Start the Express server
 const port = process.env.PORT || 3000;
