@@ -1,13 +1,5 @@
 import { TenantService } from "../services/index.js";
-
-export function throwErrorWithStatus(
-  message = "An error occurred",
-  statusCode = 400,
-) {
-  let error = new Error(message);
-  error.statusCode = statusCode;
-  throw error;
-}
+import { throwErrorWithStatus } from "../utils/index.js";
 
 // export async function checkIfTenantExists(tenantId) {
 //           // handle tenant does not exist -> maybe convert to a middleware
