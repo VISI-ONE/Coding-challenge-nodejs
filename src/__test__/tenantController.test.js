@@ -5,35 +5,15 @@ import { getOneTenantPriceboardsController } from "../controllers/index.js";
 import { TenantService } from "../services/index.js";
 import { throwErrorWithStatus } from "../utils/index.js";
 
+import { mockedPriceBoards, mockedTenants } from "./mockData.js";
+
 jest.mock("../services/index.js");
 
 jest.mock("../utils/index.js");
-// jest.unstable_mockModule("../services/index.js", () => ({
-//   TenantService: {
-//     getCountIfTenantExists: jest.mock(),
-//     getPriceBoards: jest.mock(),
-//   },
-// }));
-// jest.unstable_mockModule("../utils/index.js", () => ({
-//   throwErrorWithStatus: jest.fn(),
-// }));
-
-const mockedPriceBoards = [
-  { id: 1, price: 10.99, tenant_id: 1 },
-  { id: 2, price: 15.99, tenant_id: 1 },
-  { id: 3, price: 8.49, tenant_id: 2 },
-];
-
-const mockedTenants = [
-  { name: "Tenant A", id: 1 },
-  { name: "Tenant B", id: 2 },
-  { name: "Tenant C", id: 3 },
-];
 
 let req, res, next;
 
 beforeEach(() => {
-  // jest.resetAllMocks();
   req = httpMocks.createRequest();
   res = httpMocks.createResponse();
   next = jest.fn();

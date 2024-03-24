@@ -2,12 +2,6 @@
 
 import sqlite3 from "sqlite3";
 
-// import { Database } from "sqlite3";
-
-// const db = new Database("priceboard.db");
-
-// export default db;
-
 let db;
 
 function init() {
@@ -24,10 +18,8 @@ const executeQuery = (method, sqlQuery, params) => {
   return new Promise((resolve, reject) => {
     const queryCallback = (err, data) => {
       if (err) {
-        // console.error(err);
         reject(err);
       } else {
-        // console.log(data);
         resolve(data);
       }
     };

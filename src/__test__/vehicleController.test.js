@@ -11,37 +11,18 @@ import { throwErrorWithStatus } from "../utils/index.js";
 import { VehicleService } from "../services/index.js";
 import { TenantService } from "../services/index.js";
 
+import {
+  mockedPriceBoards,
+  mockedTenants,
+  mockedVehicles,
+} from "./mockData.js";
+
 jest.mock("../services/index.js");
 jest.mock("../utils/index.js");
-
-const mockedPriceBoards = [
-  { id: 1, price: 10.99, tenant_id: 1 },
-  { id: 2, price: 15.99, tenant_id: 1 },
-  { id: 3, price: 8.49, tenant_id: 2 },
-];
-
-const mockedTenants = [
-  { name: "Tenant A", id: 1 },
-  { name: "Tenant B", id: 2 },
-  { name: "Tenant C", id: 3 },
-];
-
-const mockedVehicles = [
-  { id: 1, vehicle_name: "VolksWagen", tenant_id: 1 },
-  { id: 2, vehicle_name: "Audi", tenant_id: 1 },
-  { id: 3, vehicle_name: "Bmw", tenant_id: 2 },
-];
 
 let req, res, next;
 
 beforeEach(() => {
-  // req = { query: {} };
-  // res = {
-  //   status: jest.fn().mockReturnThis(),
-  //   json: jest.fn(),
-  // };
-  // next = jest.fn();
-
   req = httpMocks.createRequest();
   res = httpMocks.createResponse();
   next = jest.fn();

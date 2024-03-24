@@ -2,20 +2,9 @@ import "@jest/globals";
 
 import { db } from "../repository/index.js";
 import { TenantService } from "../services/index.js";
+import { mockedPriceBoards, mockedTenants } from "./mockData.js";
 
 jest.mock("../repository/index.js");
-
-const mockedPriceBoards = [
-  { id: 1, price: 10.99, tenant_id: 1 },
-  { id: 2, price: 15.99, tenant_id: 1 },
-  { id: 3, price: 8.49, tenant_id: 2 },
-];
-
-const mockedTenants = [
-  { name: "Tenant A", id: 1 },
-  { name: "Tenant B", id: 2 },
-  { name: "Tenant C", id: 3 },
-];
 
 describe("Tenant Service", () => {
   it("should return priceboards of a tenant by id", async () => {
