@@ -1,8 +1,8 @@
 # Create and start the database
 init-db:
-	npx knex migrate:latest
-	npx knex seed:run
+	npx ts-node ./node_modules/.bin/knex migrate:latest
+	npx ts-node ./node_modules/.bin/knex seed:run
 
 # Start the Express app
 start:
-	node index.js
+	npm run build && node dist/src/index.js
