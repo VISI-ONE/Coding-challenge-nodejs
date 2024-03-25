@@ -3,7 +3,7 @@ import { getTenantPriceboards } from '../../src/controllers/tenantController';
 import * as priceboardService from '../../src/services/priceboardService';
 import { mockedPriceboardData } from '../mockData';
 
-jest.mock('../../src/services/priceboardService'); // Mocking the priceboardService module
+jest.mock('../../src/services/priceboardService');
 
 describe('getTenantPriceboards', () => {
     const mockRequest = {
@@ -15,7 +15,7 @@ describe('getTenantPriceboards', () => {
     } as unknown as Response;
 
     afterEach(() => {
-        jest.clearAllMocks(); // Clear mocks after each test
+        jest.clearAllMocks();
     });
 
     it('should return priceboards for given tenantId', async () => {

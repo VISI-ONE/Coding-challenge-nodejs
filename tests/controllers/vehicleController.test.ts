@@ -3,7 +3,7 @@ import { allVehicles } from '../../src/controllers/vehicleController';
 import * as vehicleService from '../../src/services/vehicleService';
 import { mockedVehicleData } from '../mockData';
 
-jest.mock('../../src/services/vehicleService'); // Mocking the vehicleService module
+jest.mock('../../src/services/vehicleService');
 
 describe('allVehicles', () => {
     const mockRequest = {} as Request;
@@ -13,7 +13,7 @@ describe('allVehicles', () => {
     } as unknown as Response;
 
     afterEach(() => {
-        jest.clearAllMocks(); // Clear mocks after each test
+        jest.clearAllMocks();
     });
 
     it('should return all vehicles', async () => {

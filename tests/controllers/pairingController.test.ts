@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { getPairByVehicleIdAndPriceboardId } from '../../src/controllers/pairController';
 import * as pairingService from '../../src/services/pairingService';
 
-jest.mock('../../src/services/pairingService'); // Mocking the pairingService module
+jest.mock('../../src/services/pairingService');
 
 describe('getPairByVehicleIdAndPriceboardId', () => {
     const mockRequest = {
@@ -14,7 +14,7 @@ describe('getPairByVehicleIdAndPriceboardId', () => {
     } as unknown as Response;
 
     afterEach(() => {
-        jest.clearAllMocks(); // Clear mocks after each test
+        jest.clearAllMocks();
     });
 
     it('should return priceboards for given vehicleId and priceboardId', async () => {
