@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "cc5b0c38-d5e3-473a-a1bd-033c1ff50744",
+		"name": "VisiOne",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5683902"
+	},
+	"item": [
+		{
+			"name": "Get All Vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/vehicle",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"vehicle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tenant Priceboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/tenant/1/priceboards",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"tenant",
+						"1",
+						"priceboards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get paired Vehicle and Priceboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/vehicle/1/priceboards/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"vehicle",
+						"1",
+						"priceboards",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
