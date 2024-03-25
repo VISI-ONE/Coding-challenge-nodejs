@@ -1,4 +1,9 @@
-FROM node:14-alpine
+FROM node:20-alpine
+
+RUN apk update && apk add --no-cache gcc libc-dev g++ python3 py3-pip make
+RUN npm install -g npm node-gyp
+
+RUN apk add postgresql-client
 
 WORKDIR /app
 
@@ -10,4 +15,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["make", "init-app"]

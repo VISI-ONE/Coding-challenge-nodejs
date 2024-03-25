@@ -1,9 +1,9 @@
 import { Knex } from 'knex';
 
 const config: Knex.Config = {
-  client: 'sqlite3',
+  client: 'pg',
   connection: {
-    filename: './priceboard.db', // Change this to your SQLite database file path
+    connectionString: process.env.DB_CONNECTION_STRING || 'postgresql://user:secret@db/priceboard_db',
   },
   useNullAsDefault: true,
   migrations: {

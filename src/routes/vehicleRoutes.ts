@@ -5,6 +5,6 @@ import { getPairByVehicleIdAndPriceboardId } from '../controllers/pairController
 const router = Router();
 
 router.get('/', allVehicles);
-router.get('/:vehicleId/priceboard/:priceboardId', getPairByVehicleIdAndPriceboardId);
+router.get('/:vehicleId/priceboards/:priceboardId', getPairByVehicleIdAndPriceboardId);
 
 export default router;
