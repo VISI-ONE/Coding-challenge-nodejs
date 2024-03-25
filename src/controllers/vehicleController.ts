@@ -6,7 +6,8 @@ export const allVehicles = async (req: Request, res: Response) => {
         const vehicles = await getVehicles();
         res.json(vehicles);
     } catch (err) {
-        console.error('Error retrieving vechiles:', err);
+        //Push to sentry or something via error handler in index
+        //console.error('Error retrieving vechiles:', err);
         res.status(500).json({ error: 'Error retrieving vehicles' });
     }
 };

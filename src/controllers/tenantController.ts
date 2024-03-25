@@ -7,7 +7,8 @@ export const getTenantPriceboards = async (req: Request, res: Response) => {
         const priceboards = await getPriceboardsByTenant(tenantId);
         res.json(priceboards);
     } catch (err) {
-        console.error('Error retrieving priceboards:', err);
+        // Push to sentry or something via error handler in index
+        //console.error('Error retrieving priceboards:', err);
         res.status(500).json({ error: 'Error retrieving priceboards' });
     }
 };
