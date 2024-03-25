@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/tenant', tenantRoutes);
-app.use('/vehicles', vehicleRoutes);
+app.use('/vehicle', vehicleRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

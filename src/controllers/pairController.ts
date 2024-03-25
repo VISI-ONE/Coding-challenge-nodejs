@@ -9,7 +9,8 @@ export const getPairByVehicleIdAndPriceboardId = async (req: Request, res: Respo
         const priceboards = await getPairs(vehicleId, priceboardId);
 
         if (priceboards.length === 0) {
-            res.status(500).json({ error: 'cannot pair vehicle and priceboard' });
+            res.status(500).json({ error: 'cannot pair this vehicle with this priceboard' });
+            return;
         }
 
         res.json(priceboards);
